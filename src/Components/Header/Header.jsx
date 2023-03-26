@@ -8,10 +8,10 @@ const Header = () => {
             </div>
             <div>
                 <ul className='text-slate-200 flex gap-8  font-medium'>
-                    <li className='hover:text-orange-500'><a href="order">Order</a></li>
-                    <li className='hover:text-orange-500'><a href="">Order Review</a></li>
-                    <li className='hover:text-orange-500'><a href="">Manage Inventory</a></li>
-                    <li className='hover:text-orange-500'><a href="">Login</a></li>
+                    <li className='hover:text-orange-500'><a href="/order">Order</a></li>
+                    <li className='hover:text-orange-500'><a href="/review">Order Review</a></li>
+                    <li className='hover:text-orange-500'><a href="/manage">Manage Inventory</a></li>
+                    <li className='hover:text-orange-500'><a href="/login">Login</a></li>
                 </ul>
             </div>
         </div>
