@@ -17,8 +17,8 @@ const Card = () => {
     setCart(newCart);
   };
   return (
-    <div className="flex justify-between">
-        <div className="grid grid-cols-3 gap-5 mt-14 pl-10">
+    <div className="flex flex-col-reverse lg:flex-row lg:justify-between">
+        <div className="grid justify-items-center gird-cols-1 lg:grid-cols-3 gap-5 mt-14 lg:pl-10">
         {data.map((product) => (
         <SingleData
           key={product.id}

@@ -4,7 +4,7 @@ import Cart from './Cart/Cart';
 
 const Shop = () => {
     return (
-        <div className='flex justify-between  '>
+        <div className='  '>
             <Card></Card>
           </div>
     );
