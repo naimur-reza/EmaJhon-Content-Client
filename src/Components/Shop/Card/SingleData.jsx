@@ -4,9 +4,9 @@ const SingleData = (props) => {
   const { ratings, name, price, id, seller, img } = props.data;
   return (
     <div>
-      <div className="card w-80 bg-base-100 shadow-xl">
+      <div className="card w-80 h-[520px] bg-base-100 shadow-xl">
         <figure>
-          <img src={img} alt="Shoes" />
+          <img className=""  src={img} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
@@ -17,7 +17,7 @@ const SingleData = (props) => {
         <button
           onClick={() => props.handleAddToCart(props)}
           className="btn btn-accent">
-          Buy Now <i className="fa-solid fa-cart-shopping"></i>
+          Add To Cart <i className="fa-solid fa-cart-shopping"></i>
         </button>
       </div>
     </div>
