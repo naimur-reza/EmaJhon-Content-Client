@@ -8,7 +8,7 @@ const SingleData = (props) => {
         <figure>
           <img className=""  src={img} alt="Shoes" />
         </figure>
-        <div className="card-body">
+        <div className="card-body p-3">
           <h2 className="card-title">{name}</h2>
           <p className="font-semibold">Price: ${price}</p>
           <p>Manufacturer: {seller}</p>

@@ -31,7 +31,7 @@ const Card = () => {
               data={product}></SingleData>
           ))}
         </div>
-        <Cart length={cart.length}></Cart>
+        <Cart  cart={cart}></Cart>
       </div>
       <div className="text-center py-14">
         <button onClick={handleShowAll} className="btn  btn-success">
