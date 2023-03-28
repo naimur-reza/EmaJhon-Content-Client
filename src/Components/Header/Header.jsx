@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../images/Logo.svg'
 const Header = () => {
     return (
-        <div className='bg-slate-800 px-20 py-4 flex lg:flex-row flex-col   justify-between items-center'>
+        <div className='bg-slate-800 top-0 sticky z-30 px-20 py-2 flex lg:flex-row flex-col   justify-between items-center'>
 <div className="navbar text-white font-semibold">
   <div className="navbar-start">
     <div className="dropdown">
