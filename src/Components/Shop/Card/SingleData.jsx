@@ -15,7 +15,7 @@ const SingleData = (props) => {
           <p>Ratting: {ratings}</p>
         </div>
         <button
-          onClick={() => props.handleAddToCart(props)}
+          onClick={() => props.handleAddToCart(props.data)}
           className="btn btn-accent">
           Add To Cart <i className="fa-solid fa-cart-shopping"></i>
         </button>
