@@ -2,7 +2,7 @@ import React from "react";
 import { deleteShoppingCart } from "../../../utilities/fakedb";
 import { Link } from "react-router-dom";
 
-const Cart = ({ cart , clearCart}) => {
+const Cart = ({ cart , clearCart , children}) => {
   let totalPrice = 0;
   let totalShipping = 0;
   let quantity = 0;
@@ -23,15 +23,15 @@ const Cart = ({ cart , clearCart}) => {
   // clear cart
   return (
     <div className="space-y-3 top-20 sticky bg-opacity-50 w-80 bg-pink-200  p-10 font-semibold lg:ml-5 h-fit">
-      <h1 className="text-lg font-bold text-ghost">Order Summery</h1>
-      <h1>Selected Item: {quantity}</h1>
-      <h1>Item Price :${totalPrice}</h1>
-      <h1>Shipping Cost:${totalShipping}</h1>
-      <h1>Tax: ${tax}</h1>
-      <h1>Grand Total : {grandTotal}</h1>
+      <h1 className=" font-bold text-ghost text-center text-xl">Order Summery</h1>
+      <h1 className="bg-slate-100 p-2 rounded-lg">Selected Item: <span>{quantity}</span></h1>
+      <h1 className="bg-slate-100 p-2 rounded-lg">Item Price : <span className="text-warning">${totalPrice}</span> </h1>
+      <h1 className="bg-slate-100 p-2 rounded-lg">Shipping Cost: <span className="text-warning">${totalShipping}</span> </h1>
+      <h1 className="bg-slate-100 p-2 rounded-lg">Tax:  <span className="text-warning">${tax}</span> </h1>
+      <h1 className="bg-slate-100 p-2 rounded-lg">Grand Total : <span className="text-warning">{grandTotal}</span></h1>
       <button onClick={()=> clearCart()} className="btn btn-error">Clear Cart</button>
       <br />
-      <Link to={"/review"} className="btn btn-warning">Review Order</Link>
+      <Link to={"/review"} className="btn btn-warning">{children}</Link>
     </div>
   );
 };

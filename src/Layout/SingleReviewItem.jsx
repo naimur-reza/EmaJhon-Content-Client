@@ -1,14 +1,17 @@
 import React from 'react';
-
-const SingleReviewItem = ({item}) => {
-    const {price , title , shipping ,img} = item;
+import { TrashIcon } from '@heroicons/react/24/solid'
+const SingleReviewItem = ({item ,handleRemove}) => {
+    const {price,id , name , shipping ,img} = item;
     return (
-        <div className='flex gap-2 border border-violet-500 my-3 items-center'>
+        <div className='flex p-3 shadow-lg rounded-md gap-2 border  mb-4 items-center'>
         <img className='w-24 rounded-md' src={img} alt="item-image" />
-        <div>
-            <p>{title}</p>
-            <p>Price:${price}</p>
-            <p>Shipping: ${shipping}</p>
+        <div className='space-y-1'>
+            <p className='text-md w-64 font-semibold'>{name}</p>
+            <p className='text-md font-semibold text-slate-700'>Price: <span className='text-warning'>${price}</span></p>
+            <p className='text-sm font-semibold text-slate-700'>Shipping: <span className='text-warning'>${shipping}</span></p>
+        </div>
+        <div onClick={()=> handleRemove(id)} className='ml-auto bg-red-500 bg-opacity-30 rounded-full p-3'>
+        <TrashIcon className='text-red-500 w-7'/>
         </div>
     </div>
     );

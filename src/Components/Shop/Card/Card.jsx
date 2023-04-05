@@ -3,16 +3,23 @@ import { addToDb, deleteShoppingCart, getShoppingCart } from "../../../utilities
 import Cart from "../Cart/Cart";
 import SingleData from "./SingleData";
 import { clear } from "localforage";
+import Loading from "../../Loading/Loading";
 const Card = () => {
   const [products, setProducts] = useState([]);
+  const [loading , isLoading] = useState(false);
   const [cart, setCart] = useState([]);
   const [showAll, setShowAll] = useState(false);
   useEffect(() => {
+    isLoading(true);
     fetch(
       "https://raw.githubusercontent.com/ProgrammingHero1/ema-john-resources/main/fakeData/products.json"
     )
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        isLoading(false);
+        setProducts(data)
+      })
+      
   }, []);
   // Get stored cart from local storage.
   useEffect( () =>{
@@ -65,7 +72,10 @@ const handleAddToCart = (product) => {
   }
   return (
     <>
-      <div className="flex flex-col-reverse lg:flex-row lg:justify-between">
+      <div className="flex flex-col lg:flex-row lg:justify-between">
+        {
+          loading &&  <Loading/>
+        }
         <div className="grid justify-items-center gird-cols-1 lg:grid-cols-3 gap-5 mt-14 lg:pl-10">
           {products.slice(0, showAll ? products.length : 6).map((product) => (
             <SingleData
@@ -74,7 +84,7 @@ const handleAddToCart = (product) => {
               data={product}></SingleData>
           ))}
         </div>
-        <Cart cart={cart} clearCart={clearCart}></Cart>
+        <Cart cart={cart} clearCart={clearCart}>Review Order</Cart>
       </div>
       <div className="text-center py-14">
         {!showAll && (
