@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { addToDb, getShoppingCart } from "../../../utilities/fakedb";
+import { addToDb, deleteShoppingCart, getShoppingCart } from "../../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import SingleData from "./SingleData";
+import { clear } from "localforage";
 const Card = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -56,6 +57,12 @@ const handleAddToCart = (product) => {
   const handleShowAll = () => {
     setShowAll(true);
   };
+
+  // clear cart handle
+  const clearCart = () => {
+    deleteShoppingCart();
+    setCart([]);
+  }
   return (
     <>
       <div className="flex flex-col-reverse lg:flex-row lg:justify-between">
@@ -67,7 +74,7 @@ const handleAddToCart = (product) => {
               data={product}></SingleData>
           ))}
         </div>
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart} clearCart={clearCart}></Cart>
       </div>
       <div className="text-center py-14">
         {!showAll && (
