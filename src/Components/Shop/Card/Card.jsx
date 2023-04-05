@@ -84,7 +84,9 @@ const handleAddToCart = (product) => {
               data={product}></SingleData>
           ))}
         </div>
-        <Cart cart={cart} clearCart={clearCart}>Review Order</Cart>
+        {
+          !loading && <Cart cart={cart} clearCart={clearCart}>Review Order</Cart>
+        }
       </div>
       <div className="text-center py-14">
         {!showAll && (
