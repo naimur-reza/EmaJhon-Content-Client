@@ -4,6 +4,7 @@ import Cart from "../Cart/Cart";
 import SingleData from "./SingleData";
 import { clear } from "localforage";
 import Loading from "../../Loading/Loading";
+import { Link } from "react-router-dom";
 const Card = () => {
   const [products, setProducts] = useState([]);
   const [loading , isLoading] = useState(false);
@@ -72,7 +73,8 @@ const handleAddToCart = (product) => {
   }
   return (
     <>
-      <div className="flex flex-col lg:flex-row lg:justify-between">
+      <div className=" flex flex-col lg:flex-row lg:justify-between">
+        <Link to={"/review"} className="lg:hidden top-20 sticky btn btn-square rounded-none ml-auto">Cart</Link>
         {
           loading &&  <Loading/>
         }

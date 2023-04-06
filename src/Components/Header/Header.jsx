@@ -3,7 +3,7 @@ import logo from '../../images/Logo.svg'
 import { Link, NavLink } from 'react-router-dom';
 const Header = () => {
     return (
-        <div className='bg-slate-800 top-0 sticky z-30 px-20 py-2 flex lg:flex-row flex-col   justify-between items-center'>
+        <div className='bg-opacity-70 backdrop-blur-sm bg-slate-800 top-0 sticky z-30 px-20 py-2 flex lg:flex-row flex-col   justify-between items-center'>
 <div className="navbar text-white font-semibold">
   <div className="navbar-start">
     <div className="dropdown">
@@ -17,7 +17,7 @@ const Header = () => {
         <li><Link to={"/login"}>Login</Link></li>
       </ul>
     </div>
-    <Link to={"/home"} className="btn btn-ghost normal-case text-xl"><img src={logo} alt="" /></Link>
+    <Link to={"/"} className="btn btn-ghost normal-case text-xl"><img src={logo} alt="" /></Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
