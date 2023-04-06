@@ -3,9 +3,9 @@ import { TrashIcon } from '@heroicons/react/24/solid'
 const SingleReviewItem = ({item ,handleRemove}) => {
     const {price,id , name , shipping ,img} = item;
     return (
-        <div className='flex p-3  border-slate-400 rounded-md gap-2 border  mb-4 items-center'>
-        <img className='w-24 rounded-md' src={img} alt="item-image" />
-        <div className='space-y-1'>
+        <div className='flex p-3  border-slate-400 rounded-md gap-2 border   mb-4 items-center'>
+        <img className='lg:w-24 w-16 rounded-md' src={img} alt="item-image" />
+        <div className='space-y-1 w-28'>
             <p className='text-md w-64 font-semibold'>{name}</p>
             <p className='text-md font-semibold text-slate-700'>Price: <span className='text-warning'>${price}</span></p>
             <p className='text-sm font-semibold text-slate-700'>Shipping: <span className='text-warning'>${shipping}</span></p>
