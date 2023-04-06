@@ -1,9 +1,11 @@
 import React from 'react';
+import Loading from '../Components/Loading/Loading';
 
 const Inventory = () => {
     return (
-        <div>
-            This from inventory
+        <div className='my-container'>
+
+            <Loading/>
         </div>
     );
 };
