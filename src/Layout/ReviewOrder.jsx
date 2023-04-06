@@ -39,7 +39,7 @@ const ReviewOrder = () => {
       <div className="cart-container ">
         {
             cart.length === 0 ? <h1 className="text-3xl text-warning font-semibold absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
-            ">Cart Is Empty</h1> : <Cart cart={cart} clearCart={clearCart} >Proceed Checkout</Cart>
+            ">Cart Is Empty</h1> : <Cart cart={cart} tag={'proceed'} clearCart={clearCart} >Proceed Checkout</Cart>
         }
       </div>
     </div>

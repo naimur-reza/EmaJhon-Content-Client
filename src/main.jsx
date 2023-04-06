@@ -10,6 +10,7 @@ import Inventory from './Layout/Inventory'
 import Card from './Components/Shop/Card/Card'
 import LoaderData from "../src/LoaderData"
 import Loading from './Components/Loading/Loading'
+import Procced from './Layout/Procced'
 const router = createBrowserRouter([
     {
         path:"/",
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path:"/loading",
                 element: <Loading/>
+            },
+            {
+                path:"/proceed",
+                element: <Procced/>
             },
         ]
     },

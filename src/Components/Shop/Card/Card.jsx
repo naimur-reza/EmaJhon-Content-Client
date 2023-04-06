@@ -74,7 +74,7 @@ const handleAddToCart = (product) => {
   return (
     <>
       <div className=" flex flex-col lg:flex-row lg:justify-between">
-        <Link to={"/review"} className="lg:hidden top-20 sticky btn btn-square rounded-none ml-auto">Cart</Link>
+        <Link to={"/review"} className="bg-slate-600 lg:hidden top-20 sticky z-10 btn border-none bg-opacity-60 text-white backdrop-blur-sm rounded-none ml-auto">Cart</Link>
         {
           loading &&  <Loading/>
         }
@@ -87,7 +87,7 @@ const handleAddToCart = (product) => {
           ))}
         </div>
         {
-          !loading && <Cart cart={cart} clearCart={clearCart}>Review Order</Cart>
+          !loading && <Cart cart={cart} tag={'review'} clearCart={clearCart}>Review Order</Cart>
         }
       </div>
       <div className="text-center py-14">

@@ -2,7 +2,7 @@ import React from "react";
 import { deleteShoppingCart } from "../../../utilities/fakedb";
 import { Link } from "react-router-dom";
 
-const Cart = ({ cart , clearCart , children}) => {
+const Cart = ({ cart , clearCart , children , tag}) => {
   let totalPrice = 0;
   let totalShipping = 0;
   let quantity = 0;
@@ -31,7 +31,7 @@ const Cart = ({ cart , clearCart , children}) => {
       <h1 className="bg-slate-100 p-2 rounded-lg">Grand Total : <span className="text-warning">{grandTotal}</span></h1>
       <button onClick={()=> clearCart()} className="btn btn-error">Clear Cart</button>
       <br />
-      <Link to={"/review"} className="btn btn-warning">{children}</Link>
+      <Link to={`/${tag}`} className="btn btn-warning">{children}</Link>
     </div>
   );
 };
