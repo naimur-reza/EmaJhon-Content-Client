@@ -3,7 +3,7 @@ import React from "react";
 const SingleData = (props) => {
   const { ratings, name, price, id, seller, img } = props.data;
   return (
-    <div className="card  lg:w-56 w-48 lg:h-[520px] bg-base-100 shadow-xl">
+    <div className="card  lg:w-56 w-40 lg:h-[520px] bg-base-100 shadow-xl">
       <figure>
         <img className="" src={img} alt="Shoes" />
       </figure>
