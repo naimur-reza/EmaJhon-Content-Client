@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { addToDb, deleteShoppingCart, getShoppingCart } from "../../../utilities/fakedb";
+import {
+  addToDb,
+  deleteShoppingCart,
+  getShoppingCart,
+} from "../../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import SingleData from "./SingleData";
 import { clear } from "localforage";
@@ -7,7 +11,7 @@ import Loading from "../../Loading/Loading";
 import { Link } from "react-router-dom";
 const Card = () => {
   const [products, setProducts] = useState([]);
-  const [loading , isLoading] = useState(false);
+  const [loading, isLoading] = useState(false);
   const [cart, setCart] = useState([]);
   const [showAll, setShowAll] = useState(false);
   useEffect(() => {
@@ -18,50 +22,48 @@ const Card = () => {
       .then((res) => res.json())
       .then((data) => {
         isLoading(false);
-        setProducts(data)
-      })
-      
+        setProducts(data);
+      });
   }, []);
   // Get stored cart from local storage.
-  useEffect( () =>{
+  useEffect(() => {
     const storedCart = getShoppingCart();
     const savedCart = [];
     // step 1: get id of the addedProduct
-    for(const id in storedCart){
-        // step 2: get product from products state by using id
-        const addedProduct = products.find(product => product.id === id)
-        if(addedProduct){
-            // step 3: add quantity
-            const quantity = storedCart[id];
-            addedProduct.quantity = quantity;
-            // step 4: add the added product to the saved cart
-            savedCart.push(addedProduct);
-        }
-        // console.log('added Product', addedProduct)
+    for (const id in storedCart) {
+      // step 2: get product from products state by using id
+      const addedProduct = products.find((product) => product.id === id);
+      if (addedProduct) {
+        // step 3: add quantity
+        const quantity = storedCart[id];
+        addedProduct.quantity = quantity;
+        // step 4: add the added product to the saved cart
+        savedCart.push(addedProduct);
+      }
+      // console.log('added Product', addedProduct)
     }
     // step 5: set the cart
     setCart(savedCart);
-}, [products])
-const handleAddToCart = (product) => {
-  // cart.push(product); '
-  let newCart = [];
-  // const newCart = [...cart, product];
-  // if product doesn't exist in the cart, then set quantity = 1
-  // if exist update quantity by 1
-  const exists = cart.find(pd => pd.id === product.id);
-  if(!exists){
+  }, [products]);
+  const handleAddToCart = (product) => {
+    // cart.push(product); '
+    let newCart = [];
+    // const newCart = [...cart, product];
+    // if product doesn't exist in the cart, then set quantity = 1
+    // if exist update quantity by 1
+    const exists = cart.find((pd) => pd.id === product.id);
+    if (!exists) {
       product.quantity = 1;
-      newCart= [...cart, product]
-  }
-  else{
+      newCart = [...cart, product];
+    } else {
       exists.quantity = exists.quantity + 1;
-      const remaining = cart.filter(pd => pd.id !== product.id);
+      const remaining = cart.filter((pd) => pd.id !== product.id);
       newCart = [...remaining, exists];
-  }
+    }
 
-  setCart(newCart);
-  addToDb(product.id)
-}
+    setCart(newCart);
+    addToDb(product.id);
+  };
   const handleShowAll = () => {
     setShowAll(true);
   };
@@ -70,25 +72,32 @@ const handleAddToCart = (product) => {
   const clearCart = () => {
     deleteShoppingCart();
     setCart([]);
-  }
+  };
   return (
     <>
+      {loading && <Loading />}
       <div className=" flex flex-col lg:flex-row lg:justify-between">
-        <Link to={"/review"} className="bg-slate-600 lg:hidden top-20 sticky z-10 btn border-none bg-opacity-60 text-white backdrop-blur-sm rounded-none ml-auto">Cart</Link>
-        {
-          loading &&  <Loading/>
-        }
-        <div className="grid justify-items-center gird-cols-1 lg:grid-cols-3 gap-5 mt-14 lg:pl-10">
+        <Link
+          to={"/review"}
+          className="bg-slate-600 lg:hidden top-20 sticky z-10 btn border-none bg-opacity-60 text-white backdrop-blur-sm rounded-none ml-auto"
+        >
+          Cart
+        </Link>
+
+        <div className="grid justify-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 gap-2 mt-12 lg:pl-10">
           {products.slice(0, showAll ? products.length : 6).map((product) => (
             <SingleData
               key={product.id}
               handleAddToCart={handleAddToCart}
-              data={product}></SingleData>
+              data={product}
+            ></SingleData>
           ))}
         </div>
-        {
-          !loading && <Cart cart={cart} tag={'review'} clearCart={clearCart}>Review Order</Cart>
-        }
+        {!loading && (
+          <Cart cart={cart} tag={"review"} clearCart={clearCart}>
+            Review Order
+          </Cart>
+        )}
       </div>
       <div className="text-center py-14">
         {!showAll && (
@@ -101,4 +110,4 @@ const handleAddToCart = (product) => {
   );
 };
 
-export  default Card;
+export default Card;
