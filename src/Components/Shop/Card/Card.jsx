@@ -35,6 +35,7 @@ const Card = () => {
       setProducts(data);
       isLoading(false);
     }
+    fetchData();
   }, [currentPage, itemsPerPage]);
   // Get stored cart from local storage.
   useEffect(() => {
@@ -95,7 +96,7 @@ const Card = () => {
         </Link>
 
         <div className="grid justify-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-5 gap-2 mt-12 lg:pl-10">
-          {products.slice(0, showAll ? products.length : 6).map((product) => (
+          {products.map((product) => (
             <SingleData
               key={product._id}
               handleAddToCart={handleAddToCart}
@@ -128,7 +129,7 @@ const Card = () => {
           name="pages"
           id="">
           <option>5</option>
-          <option>10</option>
+          <option>12</option>
           <option>15</option>
         </select>
       </div>
