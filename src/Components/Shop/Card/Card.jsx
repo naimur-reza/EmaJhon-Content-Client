@@ -109,14 +109,16 @@ const Card = () => {
             <button
               onClick={() => handlePagination(i)}
               key={i}
-              className="btn-warning btn-xs btn">
+              className={`${
+                currentPage === i ? "btn-warning btn-xs btn" : "btn-xs btn"
+              } `}>
               {i}
             </button>
           </>
         ))}
         <select
           onChange={(e) => setItemsPerPage(e.target.value)}
-          className="p-1 ml-2 rounded text-gray-600 outline-none"
+          className="p-1 ml-2 rounded text-gray-600 bg-pink-400 bg-opacity-30 outline-none"
           name="pages"
           id="">
           <option>5</option>
