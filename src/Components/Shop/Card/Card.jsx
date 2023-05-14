@@ -8,8 +8,10 @@ import Cart from "../Cart/Cart";
 import SingleData from "./SingleData";
 import { clear } from "localforage";
 import Loading from "../../Loading/Loading";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 const Card = () => {
+  const { totalProducts } = useLoaderData();
+  const itemsPerPage = 10;
   const [products, setProducts] = useState([]);
   const [loading, isLoading] = useState(false);
   const [cart, setCart] = useState([]);
