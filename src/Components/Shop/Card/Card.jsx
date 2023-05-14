@@ -10,8 +10,8 @@ import Loading from "../../Loading/Loading";
 import { Link, useLoaderData } from "react-router-dom";
 const Card = () => {
   const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const { totalProducts } = useLoaderData();
-  const itemsPerPage = 10;
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
   const iterator = [...Array(totalPages).keys()];
   const [products, setProducts] = useState([]);
@@ -114,6 +114,15 @@ const Card = () => {
             </button>
           </>
         ))}
+        <select
+          onChange={(e) => setItemsPerPage(e.target.value)}
+          className="p-1 ml-2 rounded text-gray-600 outline-none"
+          name="pages"
+          id="">
+          <option>5</option>
+          <option>10</option>
+          <option>15</option>
+        </select>
       </div>
     </>
   );
