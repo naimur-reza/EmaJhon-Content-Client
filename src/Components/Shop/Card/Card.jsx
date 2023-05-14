@@ -27,13 +27,15 @@ const Card = () => {
   };
   useEffect(() => {
     isLoading(true);
-    fetch("http://localhost:5000/products")
-      .then((res) => res.json())
-      .then((data) => {
-        isLoading(false);
-        setProducts(data);
-      });
-  }, []);
+    async function fetchData() {
+      const response = await fetch(
+        `http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`
+      );
+      const data = await response.json();
+      setProducts(data);
+      isLoading(false);
+    }
+  }, [currentPage, itemsPerPage]);
   // Get stored cart from local storage.
   useEffect(() => {
     const storedCart = getShoppingCart();
