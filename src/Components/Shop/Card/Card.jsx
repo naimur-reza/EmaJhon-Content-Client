@@ -12,6 +12,7 @@ import { Link, useLoaderData } from "react-router-dom";
 const Card = () => {
   const { totalProducts } = useLoaderData();
   const itemsPerPage = 10;
+  const iterator = [...Array(10).keys()];
   const [products, setProducts] = useState([]);
   const [loading, isLoading] = useState(false);
   const [cart, setCart] = useState([]);
@@ -98,11 +99,11 @@ const Card = () => {
         )}
       </div>
       <div className="text-center py-14">
-        {!showAll && (
-          <button onClick={handleShowAll} className="btn  btn-success">
-            View More
+        {iterator.map((i) => (
+          <button key={i} className="btn-warning btn-xs btn">
+            {i}
           </button>
-        )}
+        ))}
       </div>
     </>
   );
