@@ -12,7 +12,8 @@ import { Link, useLoaderData } from "react-router-dom";
 const Card = () => {
   const { totalProducts } = useLoaderData();
   const itemsPerPage = 10;
-  const iterator = [...Array(10).keys()];
+  const totalPages = Math.ceil(totalProducts / itemsPerPage);
+  const iterator = [...Array(totalPages).keys()];
   const [products, setProducts] = useState([]);
   const [loading, isLoading] = useState(false);
   const [cart, setCart] = useState([]);
