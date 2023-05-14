@@ -4,6 +4,8 @@ const fetchingData = async () => {
   const response = await fetch("http://localhost:5000/products");
   const data = await response.json();
   const storedData = getShoppingCart();
+  const ids = Object.keys(storedData);
+  console.log(ids);
   let storedCart = [];
   for (const id in storedData) {
     const addedItem = data.find((pd) => pd._id === id);
