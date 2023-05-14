@@ -21,6 +21,10 @@ const Card = () => {
   const handlePagination = (i) => {
     setCurrentPage(i);
   };
+  const handleSelectChange = (event) => {
+    setItemsPerPage(parseInt(event.target.value));
+    setCurrentPage(0);
+  };
   useEffect(() => {
     isLoading(true);
     fetch("http://localhost:5000/products")
@@ -117,8 +121,8 @@ const Card = () => {
           </>
         ))}
         <select
-          onChange={(e) => setItemsPerPage(e.target.value)}
-          className="p-1 ml-2 rounded text-gray-600 bg-pink-400 bg-opacity-30 outline-none"
+          onChange={handleSelectChange}
+          className="p-1 ml-2 rounded-lg text-gray-400 bg-black   outline-none"
           name="pages"
           id="">
           <option>5</option>
