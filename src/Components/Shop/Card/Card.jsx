@@ -10,7 +10,7 @@ import Loading from "../../Loading/Loading";
 import { Link, useLoaderData } from "react-router-dom";
 const Card = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(12);
   const { totalProducts } = useLoaderData();
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
   const iterator = [...Array(totalPages).keys()];
@@ -129,7 +129,7 @@ const Card = () => {
           name="pages"
           id="">
           <option>5</option>
-          <option>12</option>
+          <option>10</option>
           <option>15</option>
         </select>
       </div>
