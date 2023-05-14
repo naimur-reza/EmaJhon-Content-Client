@@ -6,10 +6,10 @@ import {
 } from "../../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import SingleData from "./SingleData";
-import { clear } from "localforage";
 import Loading from "../../Loading/Loading";
 import { Link, useLoaderData } from "react-router-dom";
 const Card = () => {
+  const [currentPage, setCurrentPage] = useState(0);
   const { totalProducts } = useLoaderData();
   const itemsPerPage = 10;
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
@@ -18,6 +18,9 @@ const Card = () => {
   const [loading, isLoading] = useState(false);
   const [cart, setCart] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const handlePagination = (i) => {
+    setCurrentPage(i);
+  };
   useEffect(() => {
     isLoading(true);
     fetch("http://localhost:5000/products")
@@ -100,10 +103,16 @@ const Card = () => {
         )}
       </div>
       <div className="text-center py-14">
+        <h1 className="font-semibold py-1">Current Page : {currentPage}</h1>
         {iterator.map((i) => (
-          <button key={i} className="btn-warning btn-xs btn">
-            {i}
-          </button>
+          <>
+            <button
+              onClick={() => handlePagination(i)}
+              key={i}
+              className="btn-warning btn-xs btn">
+              {i}
+            </button>
+          </>
         ))}
       </div>
     </>
