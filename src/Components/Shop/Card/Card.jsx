@@ -116,14 +116,13 @@ const Card = () => {
               data={product}></SingleData>
           ))}
         </div>
-        {!loading && (
-          <Cart cart={cart} tag={"review"} clearCart={clearCart}>
-            Review Order
-          </Cart>
-        )}
+
+        <Cart cart={cart} tag={"review"} clearCart={clearCart}>
+          Review Order
+        </Cart>
       </div>
       <div className="text-center py-14">
-        <h1 className="font-semibold py-1">Current Page : {currentPage}</h1>
+        <h1 className="font-semibold py-1">Current Page : {currentPage + 1}</h1>
         {iterator.map((i) => (
           <>
             <button
@@ -132,7 +131,7 @@ const Card = () => {
               className={`${
                 currentPage === i ? "btn-warning btn-xs btn" : "btn-xs btn"
               } `}>
-              {i}
+              {i + 1}
             </button>
           </>
         ))}
