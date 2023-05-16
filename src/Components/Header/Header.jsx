@@ -9,7 +9,7 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
   return (
-    <div className="bg-opacity-70 backdrop-blur-sm bg-slate-800 top-0 sticky z-30 px-20 py-2 flex lg:flex-row flex-col   justify-between items-center">
+    <div className="bg-opacity-70 backdrop-blur-sm bg-slate-800 top-0 sticky z-30  py-2 flex lg:flex-row flex-col   justify-between items-center">
       <div className="navbar text-white font-semibold">
         <div className="navbar-start">
           <div className="dropdown">
@@ -61,7 +61,7 @@ const Header = () => {
             type="text"
             onChange={handleSearch}
             placeholder="Search Products"
-            className=" px-4 py-2 rounded-lg outline-none  bg-white  bg-opacity-20  text-gray-300   w-full max-w-xs"
+            className="w-[100px] px-4 py-2 rounded-lg outline-none  bg-white  bg-opacity-20  text-gray-300  lg:w-full "
           />
         </div>
         <div className="navbar-center hidden lg:flex">
