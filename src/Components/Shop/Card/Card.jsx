@@ -141,6 +141,7 @@ const Card = () => {
           onChange={handleSelectChange}
           className="p-1 ml-2 rounded-lg text-gray-400 bg-black   outline-none"
           name="pages"
+          defaultValue={itemsPerPage}
           id="">
           <option>5</option>
           <option>10</option>
