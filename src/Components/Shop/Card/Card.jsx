@@ -88,18 +88,13 @@ const Card = () => {
     setCart(newCart);
     addToDb(product._id);
   };
-  const handleShowAll = () => {
-    setShowAll(true);
-  };
 
   // clear cart handle
   const clearCart = () => {
     deleteShoppingCart();
     setCart([]);
   };
-  if (loading) {
-    return <Loading />;
-  }
+
   return (
     <>
       {loading && <Loading />}
