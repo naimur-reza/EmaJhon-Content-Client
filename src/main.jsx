@@ -14,6 +14,7 @@ import Procced from "./Layout/Procced";
 import Register from "./Layout/Register";
 import AuthProvider from "./Components/AuthProvider/AuthProvider";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import SearchProvider from "./Components/SearchProvider/SearchProvider";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -67,6 +68,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <AuthProvider>
-    <RouterProvider router={router} />
+    <SearchProvider>
+      <RouterProvider router={router} />
+    </SearchProvider>
   </AuthProvider>
 );

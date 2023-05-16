@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   addToDb,
   deleteShoppingCart,
@@ -8,7 +8,10 @@ import Cart from "../Cart/Cart";
 import SingleData from "./SingleData";
 import Loading from "../../Loading/Loading";
 import { Link, useLoaderData } from "react-router-dom";
+import { SearchContext } from "../../SearchProvider/SearchProvider";
 const Card = () => {
+  const { value } = useContext(SearchContext);
+
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const { totalProducts } = useLoaderData();
@@ -48,6 +51,8 @@ const Card = () => {
         },
         body: JSON.stringify(ids),
       });
+      // implementing search feature
+
       const cartProducts = await response.json();
       const storedCart = getShoppingCart();
       const savedCart = [];
@@ -94,7 +99,11 @@ const Card = () => {
     deleteShoppingCart();
     setCart([]);
   };
-
+  useEffect(() => {
+    fetch(`http://localhost:5000/products/${value}`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [value]);
   return (
     <>
       {loading && <Loading />}

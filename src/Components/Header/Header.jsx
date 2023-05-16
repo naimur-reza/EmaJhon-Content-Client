@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
+import React, { createContext, useContext } from "react";
 import logo from "../../images/Logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import AuthProvider, { AuthContext } from "../AuthProvider/AuthProvider";
+import { SearchContext } from "../SearchProvider/SearchProvider";
 const Header = () => {
+  const { handleSearch } = useContext(SearchContext);
+  console.log(handleSearch);
   const { user, logOut } = useContext(AuthContext);
   console.log(user);
   return (
@@ -56,6 +59,7 @@ const Header = () => {
           </Link>
           <input
             type="text"
+            onChange={handleSearch}
             placeholder="Search Products"
             className="input input-bordered bg-opacity-20 text-gray-300 input-error w-full max-w-xs"
           />
