@@ -100,9 +100,13 @@ const Card = () => {
     setCart([]);
   };
   useEffect(() => {
+    isLoading(true);
     fetch(`http://localhost:5000/products/${value}`)
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        isLoading(false);
+      });
   }, [value]);
   return (
     <>

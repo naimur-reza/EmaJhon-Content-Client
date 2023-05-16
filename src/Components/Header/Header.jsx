@@ -5,9 +5,9 @@ import AuthProvider, { AuthContext } from "../AuthProvider/AuthProvider";
 import { SearchContext } from "../SearchProvider/SearchProvider";
 const Header = () => {
   const { handleSearch } = useContext(SearchContext);
-  console.log(handleSearch);
+
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   return (
     <div className="bg-opacity-70 backdrop-blur-sm bg-slate-800 top-0 sticky z-30 px-20 py-2 flex lg:flex-row flex-col   justify-between items-center">
       <div className="navbar text-white font-semibold">
@@ -61,7 +61,7 @@ const Header = () => {
             type="text"
             onChange={handleSearch}
             placeholder="Search Products"
-            className="input input-bordered bg-opacity-20 text-gray-300 input-error w-full max-w-xs"
+            className=" px-4 py-2 rounded-lg outline-none  bg-white  bg-opacity-20  text-gray-300   w-full max-w-xs"
           />
         </div>
         <div className="navbar-center hidden lg:flex">

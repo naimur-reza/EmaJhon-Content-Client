@@ -2,7 +2,6 @@ import { getShoppingCart } from "./utilities/fakedb";
 
 const storedData = getShoppingCart();
 const ids = Object.keys(storedData);
-console.log(ids);
 
 const fetchingData = async () => {
   const response = await fetch("http://localhost:5000/productsByIds", {

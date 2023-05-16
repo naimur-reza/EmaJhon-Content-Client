@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  console.log(location);
+  // console.log(location);
   const { signIn } = useContext(AuthContext);
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const Login = () => {
     signIn(email, password)
       .then((res) => {
         const loggedUser = res.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         navigate(from);
       })
       .catch((err) => {
@@ -61,8 +61,7 @@ const Login = () => {
                   New to here?{" "}
                   <Link
                     to={"/register"}
-                    className="hover:underline font-semibold"
-                  >
+                    className="hover:underline font-semibold">
                     Register Now
                   </Link>
                 </p>
