@@ -16,8 +16,7 @@ const Header = () => {
                 className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -28,8 +27,7 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className=" menu menu-compact dropdown-content bg-slate-800 mt-3 p-2  rounded-box w-52"
-            >
+              className=" menu menu-compact dropdown-content bg-slate-800 mt-3 p-2  rounded-box w-52">
               <li>
                 <Link to={"/order"}>Order</Link>
               </li>
@@ -56,6 +54,11 @@ const Header = () => {
           <Link to={"/"} className="btn btn-ghost normal-case text-xl">
             <img src={logo} alt="" />
           </Link>
+          <input
+            type="text"
+            placeholder="Search Products"
+            className="input input-bordered bg-opacity-20 text-gray-300 input-error w-full max-w-xs"
+          />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

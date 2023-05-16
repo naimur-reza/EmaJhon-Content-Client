@@ -17,7 +17,6 @@ const Card = () => {
   const [products, setProducts] = useState([]);
   const [loading, isLoading] = useState(false);
   const [cart, setCart] = useState([]);
-  const [showAll, setShowAll] = useState(false);
   const handlePagination = (i) => {
     setCurrentPage(i);
   };
@@ -98,6 +97,9 @@ const Card = () => {
     deleteShoppingCart();
     setCart([]);
   };
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <>
       {loading && <Loading />}
