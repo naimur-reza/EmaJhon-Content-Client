@@ -31,7 +31,7 @@ const Card = () => {
     isLoading(true);
     async function fetchData() {
       const response = await fetch(
-        `http://localhost:5000/products?page=${currentPage}&limit=${itemsPerPage}`
+        `https://ema-jhon-server-nine.vercel.app/products?page=${currentPage}&limit=${itemsPerPage}`
       );
       const data = await response.json();
       setProducts(data);
@@ -44,13 +44,16 @@ const Card = () => {
     const fetchingData = async () => {
       const storedData = getShoppingCart();
       const ids = Object.keys(storedData);
-      const response = await fetch("http://localhost:5000/productsByIds", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(ids),
-      });
+      const response = await fetch(
+        "https://ema-jhon-server-nine.vercel.app/productsByIds",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(ids),
+        }
+      );
       // implementing search feature
 
       const cartProducts = await response.json();
@@ -101,7 +104,7 @@ const Card = () => {
   };
   useEffect(() => {
     isLoading(true);
-    fetch(`http://localhost:5000/products/${value}`)
+    fetch(`https://ema-jhon-server-nine.vercel.app/products/${value}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

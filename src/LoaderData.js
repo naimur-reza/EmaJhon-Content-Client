@@ -4,13 +4,16 @@ const storedData = getShoppingCart();
 const ids = Object.keys(storedData);
 
 const fetchingData = async () => {
-  const response = await fetch("http://localhost:5000/productsByIds", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(ids),
-  });
+  const response = await fetch(
+    "https://ema-jhon-server-nine.vercel.app/productsByIds",
+    {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(ids),
+    }
+  );
   const data = await response.json();
   console.log(data);
   let storedCart = [];
